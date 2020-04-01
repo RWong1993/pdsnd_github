@@ -1,11 +1,6 @@
 #1 Popular times of travel (i.e., occurs most often in the start time)
 #What is the most common month?
-#What is the most common day of week?
-#What is the most common hour of day?
-
-The most common month for bike rentals from the first 6 months of 2017 was June from all three cities with a total of 37151 rentals.
-The most common day of the week for bike rentals from the first 6 months of 2017 was Wednesday from all three cities with a total of 25080 rentals.
-The most common hour of the day for bike rentals from the first 6 months of 2017 was 8:00AM from all three cities with a total of 14835 rentals.
+#The most common month for bike rentals from the first 6 months of 2017 was June from all three cities with a total of 37151 rentals.
 
 library(dplyr)
 library(stringr)
@@ -29,6 +24,8 @@ month.count = table(df.time$start.month)
 bike.bar = barplot(month.count, ylim = c(0,40000), xlab = "Months in 2017", ylab = "Count of Rides", main = "Bike Rentals by Month")
 text (x = bike.bar, y = month.count, label = month.count, pos = 1, cex = 1, col = "Blue")
 
+#What is the most common day of week?
+#The most common day of the week for bike rentals from the first 6 months of 2017 was Wednesday from all three cities with a total of 25080 rentals.
 
 library(dplyr)
 library(stringr)
@@ -51,6 +48,9 @@ weekday.count = table(df.time$start.day)
 #Build graph
 bike.bar = barplot(weekday.count, ylim = c(0,30000), xlab = "Day of the Week", ylab = "Count of Rides", main = "Bike Rentals by Day in First Half of 2017")
 text (x = bike.bar, y = weekday.count, label = weekday.count, pos = 1, cex = 1, col = "Blue")
+
+#What is the most common hour of day?
+#The most common hour of the day for bike rentals from the first 6 months of 2017 was 8:00AM from all three cities with a total of 14835 rentals.
 
 library(dplyr)
 library(stringr)
@@ -78,13 +78,7 @@ text (x = bike.bar, y = hour.count, label = hour.count, pos = 3, cex = 0.5, col 
 
 #2 Popular stations and trip
 #What is the most common start station?
-#What is the most common end station?
-#What is the most common trip from start to end (i.e., most frequent combination of start station and end station)?
-
-The most common start station from the first 6 months of 2017 was Columbus Circle / Union Station from all three cities with a total of 1700 rentals starting from this station.
-The most common end station from the first 6 months of 2017 was Columbus Circle / Union Station from all three cities with a total of 1767 rentals ending at this station.
-The most common starting and ending station combination from the first 6 months of 2017 was Jefferson Dr & 14th St SW to Jefferson Dr & 14th St SW from all three cities with a total of 198 rentals with this combination.
-
+#The most common start station from the first 6 months of 2017 was Columbus Circle / Union Station from all three cities with a total of 1700 rentals starting from this station.
 
 library(dplyr)
 library(stringr)
@@ -112,6 +106,8 @@ df.plot = ggplot(df.station, aes(x=reorder(Start.Station,-Start.Station.Count),y
 
 df.plot
 
+#What is the most common end station?
+#The most common end station from the first 6 months of 2017 was Columbus Circle / Union Station from all three cities with a total of 1767 rentals ending at this station.
 
 library(dplyr)
 library(stringr)
@@ -138,6 +134,9 @@ df.plot = ggplot(df.station, aes(x=reorder(End.Station,-End.Station.Count),y=End
   geom_text(aes(x=reorder(End.Station,-End.Station.Count),y=End.Station.Count,label=End.Station.Count),vjust=2)
 df.plot
 
+
+#What is the most common trip from start to end (i.e., most frequent combination of start station and end station)?
+#The most common starting and ending station combination from the first 6 months of 2017 was Jefferson Dr & 14th St SW to Jefferson Dr & 14th St SW from all three cities with a total of 198 rentals with this combination.
 
 library(dplyr)
 library(stringr)
@@ -173,10 +172,7 @@ df.plot
 
 #3 Trip duration
 #What is the total travel time for users in different cities?
-#What is the average travel time for users in different cities?
-
-The total rental time from the first 6 months of 2017 was 2247 hours in Chicago, 13747 hours in New York, and 30511 hours in Washington
-The average rental time from the first 6 months of 2017 was 15.62 minutes in Chicago, 15.06 minutes in New York, and 20.56 minutes in Washington.
+#The total rental time from the first 6 months of 2017 was 2247 hours in Chicago, 13747 hours in New York, and 30511 hours in Washington
 
 library(dplyr)
 library(stringr)
@@ -200,7 +196,8 @@ df.plot = ggplot(df.sum, aes(x=cities,y=city.sum))+
   geom_text(aes(x=reorder(cities,-city.sum),y=city.sum,label=city.sum),vjust=2)
 df.plot
 
-
+#What is the average travel time for users in different cities?
+#The average rental time from the first 6 months of 2017 was 15.62 minutes in Chicago, 15.06 minutes in New York, and 20.56 minutes in Washington.
 
 library(dplyr)
 library(stringr)
