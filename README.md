@@ -8,9 +8,13 @@ bikeshare.py
 Answer questions about bikeshare data provided in 3 given cities (Chicago, New York, and Washington).
 
 ### Files used
+
+
+### Ignored data files
 chicago.csv
 new-york-city.csv
 washinton.csv
+
 
 ### Credits
 Udacity - R Programming Course with data provided by Motivate
