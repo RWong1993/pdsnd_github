@@ -1,15 +1,16 @@
 ### Date created
-Include the date you created this project and README file.
+March 31, 2020
 
 ### Project Title
-Replace the Project Title
+bikeshare.py
 
 ### Description
-Describe what your project is about and what it does
+Answer questions about bikeshare data provided in 3 given cities (Chicago, New York, and Washington).
 
 ### Files used
-Include the files used
+chicago.csv
+new-york-city.csv
+washinton.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Udacity - R Programming Course with data provided by Motivate
