@@ -30,8 +30,6 @@ bike.bar = barplot(month.count, ylim = c(0,40000), xlab = "Months in 2017", ylab
 text (x = bike.bar, y = month.count, label = month.count, pos = 1, cex = 1, col = "Blue")
 
 
-library(dplyr)
-library(stringr)
 
 #Establish combined, trimmed table
 trim.ny <- ny[-c(8,9)]
@@ -52,8 +50,7 @@ weekday.count = table(df.time$start.day)
 bike.bar = barplot(weekday.count, ylim = c(0,30000), xlab = "Day of the Week", ylab = "Count of Rides", main = "Bike Rentals by Day in First Half of 2017")
 text (x = bike.bar, y = weekday.count, label = weekday.count, pos = 1, cex = 1, col = "Blue")
 
-library(dplyr)
-library(stringr)
+
 
 #Establish combined, trimmed table
 trim.ny <- ny[-c(8,9)]
@@ -113,9 +110,6 @@ df.plot = ggplot(df.station, aes(x=reorder(Start.Station,-Start.Station.Count),y
 df.plot
 
 
-library(dplyr)
-library(stringr)
-library(ggplot2)
 
 #Establish combined, trimmed table
 trim.ny <- ny[-c(8,9)]
@@ -139,9 +133,6 @@ df.plot = ggplot(df.station, aes(x=reorder(End.Station,-End.Station.Count),y=End
 df.plot
 
 
-library(dplyr)
-library(stringr)
-library(ggplot2)
 
 #Establish combined, trimmed table
 trim.ny <- ny[-c(8,9)]
@@ -201,10 +192,6 @@ df.plot = ggplot(df.sum, aes(x=cities,y=city.sum))+
 df.plot
 
 
-
-library(dplyr)
-library(stringr)
-library(ggplot2)
 
 #Get averages
 chi.avg  <- round(mean(as.integer(chi$Trip.Duration),na.rm=TRUE)/60,2)
