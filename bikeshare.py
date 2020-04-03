@@ -31,12 +31,6 @@ text (x = bike.bar, y = month.count, label = month.count, pos = 1, cex = 1, col 
 
 
 
-#Establish combined, trimmed table
-trim.ny <- ny[-c(8,9)]
-trim.chi <- chi[-c(8,9)]
-trim.nychi <- rbind(trim.ny,trim.chi)
-df = rbind(trim.nychi,wash)
-
 #Extract weekday out of the table
 df.time <- df %>%
   mutate(Start.Time = as.POSIXct(strptime(df$Start.Time, "%Y-%m-%d %H:%M:%S"))) %>%
@@ -51,12 +45,6 @@ bike.bar = barplot(weekday.count, ylim = c(0,30000), xlab = "Day of the Week", y
 text (x = bike.bar, y = weekday.count, label = weekday.count, pos = 1, cex = 1, col = "Blue")
 
 
-
-#Establish combined, trimmed table
-trim.ny <- ny[-c(8,9)]
-trim.chi <- chi[-c(8,9)]
-trim.nychi <- rbind(trim.ny,trim.chi)
-df = rbind(trim.nychi,wash)
 
 #Extract weekday out of the table
 df.time <- df %>%
@@ -110,13 +98,6 @@ df.plot = ggplot(df.station, aes(x=reorder(Start.Station,-Start.Station.Count),y
 df.plot
 
 
-
-#Establish combined, trimmed table
-trim.ny <- ny[-c(8,9)]
-trim.chi <- chi[-c(8,9)]
-trim.nychi <- rbind(trim.ny,trim.chi)
-df = rbind(trim.nychi,wash)
-
 #Organize by End Station
 df.station = df %>%
   group_by(End.Station) %>%
@@ -133,12 +114,6 @@ df.plot = ggplot(df.station, aes(x=reorder(End.Station,-End.Station.Count),y=End
 df.plot
 
 
-
-#Establish combined, trimmed table
-trim.ny <- ny[-c(8,9)]
-trim.chi <- chi[-c(8,9)]
-trim.nychi <- rbind(trim.ny,trim.chi)
-df = rbind(trim.nychi,wash)
 
 #Combine start and end stations
 df$combo  <- paste(df$Start.Station,"-",df$End.Station)
