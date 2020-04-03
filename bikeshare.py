@@ -27,14 +27,6 @@ text (x = bike.bar, y = month.count, label = month.count, pos = 1, cex = 1, col 
 #What is the most common day of week?
 #The most common day of the week for bike rentals from the first 6 months of 2017 was Wednesday from all three cities with a total of 25080 rentals.
 
-library(dplyr)
-library(stringr)
-
-#Establish combined, trimmed table
-trim.ny <- ny[-c(8,9)]
-trim.chi <- chi[-c(8,9)]
-trim.nychi <- rbind(trim.ny,trim.chi)
-df = rbind(trim.nychi,wash)
 
 #Extract weekday out of the table
 df.time <- df %>%
@@ -52,14 +44,6 @@ text (x = bike.bar, y = weekday.count, label = weekday.count, pos = 1, cex = 1, 
 #What is the most common hour of day?
 #The most common hour of the day for bike rentals from the first 6 months of 2017 was 8:00AM from all three cities with a total of 14835 rentals.
 
-library(dplyr)
-library(stringr)
-
-#Establish combined, trimmed table
-trim.ny <- ny[-c(8,9)]
-trim.chi <- chi[-c(8,9)]
-trim.nychi <- rbind(trim.ny,trim.chi)
-df = rbind(trim.nychi,wash)
 
 #Extract weekday out of the table
 df.time <- df %>%
@@ -109,16 +93,6 @@ df.plot
 #What is the most common end station?
 #The most common end station from the first 6 months of 2017 was Columbus Circle / Union Station from all three cities with a total of 1767 rentals ending at this station.
 
-library(dplyr)
-library(stringr)
-library(ggplot2)
-
-#Establish combined, trimmed table
-trim.ny <- ny[-c(8,9)]
-trim.chi <- chi[-c(8,9)]
-trim.nychi <- rbind(trim.ny,trim.chi)
-df = rbind(trim.nychi,wash)
-
 #Organize by End Station
 df.station = df %>%
   group_by(End.Station) %>%
@@ -138,15 +112,6 @@ df.plot
 #What is the most common trip from start to end (i.e., most frequent combination of start station and end station)?
 #The most common starting and ending station combination from the first 6 months of 2017 was Jefferson Dr & 14th St SW to Jefferson Dr & 14th St SW from all three cities with a total of 198 rentals with this combination.
 
-library(dplyr)
-library(stringr)
-library(ggplot2)
-
-#Establish combined, trimmed table
-trim.ny <- ny[-c(8,9)]
-trim.chi <- chi[-c(8,9)]
-trim.nychi <- rbind(trim.ny,trim.chi)
-df = rbind(trim.nychi,wash)
 
 #Combine start and end stations
 df$combo  <- paste(df$Start.Station,"-",df$End.Station)
@@ -198,10 +163,6 @@ df.plot
 
 #What is the average travel time for users in different cities?
 #The average rental time from the first 6 months of 2017 was 15.62 minutes in Chicago, 15.06 minutes in New York, and 20.56 minutes in Washington.
-
-library(dplyr)
-library(stringr)
-library(ggplot2)
 
 #Get averages
 chi.avg  <- round(mean(as.integer(chi$Trip.Duration),na.rm=TRUE)/60,2)
